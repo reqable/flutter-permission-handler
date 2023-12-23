@@ -87,10 +87,11 @@ void PermissionHandlerWindowsPlugin::RegisterWithRegistrar(
 }
 
 PermissionHandlerWindowsPlugin::PermissionHandlerWindowsPlugin(){
-  m_positionChangedRevoker = geolocator.PositionChanged(winrt::auto_revoke,
-    [this](Geolocator const& geolocator, PositionChangedEventArgs e)
-    {
-    });
+  // Fix issue: https://github.com/Baseflow/flutter-permission-handler/issues/983
+  // m_positionChangedRevoker = geolocator.PositionChanged(winrt::auto_revoke,
+  //   [this](Geolocator const& geolocator, PositionChangedEventArgs e)
+  //   {
+  //   });
 }
 
 PermissionHandlerWindowsPlugin::~PermissionHandlerWindowsPlugin() = default;
